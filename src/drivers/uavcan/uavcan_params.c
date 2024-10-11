@@ -435,3 +435,16 @@ PARAM_DEFINE_INT32(UAVCAN_SUB_RNG, 0);
  * @group UAVCAN
  */
 PARAM_DEFINE_INT32(UAVCAN_SUB_BTN, 0);
+
+/**
+ * subscription DebugKeyValue
+ *
+ * Enable UAVCAN Debug Key Value subscription.
+ * uavcan::protocol::debug::KeyValue
+ *
+ * @boolean
+ * @reboot_required true
+ * @group UAVCAN
+ */
+PARAM_DEFINE_INT32(UAVCAN_SUB_DBG, 0);
+

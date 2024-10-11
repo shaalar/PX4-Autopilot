@@ -81,6 +81,9 @@
 #if defined(CONFIG_UAVCAN_SENSOR_SAFETY_BUTTON)
 #include "safety_button.hpp"
 #endif
+#if defined(CONFIG_UAVCAN_SENSOR_DEBUG_KEY_VALUE)
+#include "debugkeyvalue.hpp"
+#endif
 
 /*
  * IUavcanSensorBridge
@@ -242,6 +245,18 @@ void IUavcanSensorBridge::make_all(uavcan::INode &node, List<IUavcanSensorBridge
 	}
 
 #endif
+
+	// debug key value
+
+#if defined(CONFIG_UAVCAN_SENSOR_DEBUG_KEY_VALUE)
+	int32_t uavcan_sub_dbg = 1;
+	param_get(param_find("UAVCAN_SUB_DBG"), &uavcan_sub_dbg);
+
+	if (uavcan_sub_dbg != 0) {
+		list.add(new UavcanDebugKeyValueBridge(node));
+	}
+#endif
+
 }
 
 /*

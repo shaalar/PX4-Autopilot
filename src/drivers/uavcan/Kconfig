@@ -90,6 +90,10 @@ if DRIVERS_UAVCAN
         bool "Subscribe to Safety Button:               ardupilot::indication::Button"
         default y
 
+    config UAVCAN_SENSOR_DEBUG_KEY_VALUE
+        bool "Subscribe to Debug Key Value:		uavcan::protocol::debug::KeyValue"
+        default y
+
 endif #DRIVERS_UAVCAN
 
 
